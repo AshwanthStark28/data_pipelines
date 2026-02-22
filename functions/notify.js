@@ -65,19 +65,20 @@ function isAuthorizedRequest(event, expectedSecret) {
     console.error('WEBHOOK_SECRET is not configured.');
     return false;
   }
-  const provided = getHeader(event?.request?.headers, 'x-webhook-secret');
+  const provided = getHeader(event?.request?.headers || event?.headers, 'x-webhook-secret');
   return provided === secret;
 }
 
 function parsePayload(event) {
+  const payload = (event?.payload && typeof event.payload === 'object') ? event.payload : event;
   return {
-    email_id: cleanString(event?.email_id || event?.emailId || event?.message_id),
-    subject: cleanString(event?.subject),
-    from: cleanString(event?.from),
-    date: cleanString(event?.date),
-    snippet: cleanString(event?.snippet),
-    body: cleanString(event?.body),
-    source: cleanString(event?.source) || DEFAULT_SOURCE
+    email_id: cleanString(payload?.email_id || payload?.emailId || payload?.message_id),
+    subject: cleanString(payload?.subject),
+    from: cleanString(payload?.from),
+    date: cleanString(payload?.date),
+    snippet: cleanString(payload?.snippet),
+    body: cleanString(payload?.body),
+    source: cleanString(payload?.source) || DEFAULT_SOURCE
   };
 }
 
