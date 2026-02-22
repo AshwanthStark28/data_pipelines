@@ -15,6 +15,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "twilio": "^5.10.3"
+    "twilio": "^5.12.2"
   }
 }

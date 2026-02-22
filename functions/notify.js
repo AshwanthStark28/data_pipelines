@@ -124,8 +124,7 @@ function buildWhatsAppBody(payload) {
     `Subject: ${payload.subject || '(no subject)'}`,
     `From: ${payload.from || '(unknown sender)'}`,
     `Date: ${payload.date || '(unknown date)'}`,
-    `Excerpt: ${excerpt || '(no excerpt)'}`,
-    `Source: ${payload.source || DEFAULT_SOURCE}`
+    `Excerpt: ${excerpt || '(no excerpt)'}`
   ];
   return lines.join('\n');
 }
