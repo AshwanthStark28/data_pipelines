@@ -1,0 +1,20 @@
+{
+  "name": "whatsapp-naukri-zapier-twilio",
+  "version": "1.0.0",
+  "description": "Zapier Gmail webhook to Twilio WhatsApp notifier for Naukri invites.",
+  "main": "functions/notify.js",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": [
+    "twilio",
+    "whatsapp",
+    "zapier",
+    "gmail",
+    "naukri"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "twilio": "^5.12.2"
+  }
+}
