@@ -1,5 +1,23 @@
 # whatsapp-naukri-zapier-twilio
 
+## Simple healthcare dashboard
+
+A clean, lightweight healthcare dashboard is available at:
+
+- `dashboard/index.html`
+
+It is fully static (HTML/CSS/JS), so you can open it directly in a browser or run a local server:
+
+```bash
+python3 -m http.server 4173
+```
+
+Then open:
+
+- `http://localhost:4173/dashboard/`
+
+---
+
 Minimal GitHub-ready project:
 
 **Zapier (Gmail trigger) -> Webhook POST -> Twilio Serverless Function -> WhatsApp**

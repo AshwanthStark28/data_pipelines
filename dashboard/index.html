@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Healthcare Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">CityCare Medical Center</p>
+          <h1>Healthcare Dashboard</h1>
+          <p class="muted">Operational snapshot for clinicians and coordinators</p>
+        </div>
+        <div class="topbar-meta">
+          <div class="meta-card">
+            <p class="meta-label">Last updated</p>
+            <p class="meta-value" id="lastUpdated">--</p>
+          </div>
+          <div class="meta-card">
+            <p class="meta-label">Date</p>
+            <p class="meta-value" id="todayDate">--</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="kpi-grid" aria-label="Key performance indicators">
+        <article class="kpi-card">
+          <p class="kpi-label">Active Patients</p>
+          <p class="kpi-value" id="kpiPatients">0</p>
+        </article>
+        <article class="kpi-card">
+          <p class="kpi-label">Appointments Today</p>
+          <p class="kpi-value" id="kpiAppointments">0</p>
+        </article>
+        <article class="kpi-card">
+          <p class="kpi-label">Average Wait</p>
+          <p class="kpi-value" id="kpiWait">0 min</p>
+        </article>
+        <article class="kpi-card">
+          <p class="kpi-label">Bed Occupancy</p>
+          <p class="kpi-value" id="kpiOccupancy">0%</p>
+        </article>
+      </section>
+
+      <section class="main-grid">
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Appointments</h2>
+            <select id="appointmentFilter" aria-label="Filter appointments by status">
+              <option value="all">All statuses</option>
+              <option value="waiting">Waiting</option>
+              <option value="in-consultation">In consultation</option>
+              <option value="completed">Completed</option>
+              <option value="delayed">Delayed</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Patient</th>
+                  <th>Doctor</th>
+                  <th>Department</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="appointmentsBody"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Critical Alerts</h2>
+          </div>
+          <ul id="alertsList" class="alerts-list"></ul>
+        </article>
+      </section>
+
+      <section class="main-grid">
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Patient Overview</h2>
+            <input
+              id="patientSearch"
+              type="search"
+              placeholder="Search by name, condition, or room"
+              aria-label="Search patients"
+            >
+          </div>
+          <div id="patientsList" class="patients-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Medication Adherence</h2>
+          </div>
+          <div id="adherenceList" class="adherence-list"></div>
+
+          <div class="mini-chart">
+            <h3>Weekly Admissions</h3>
+            <div id="admissionBars" class="bar-row"></div>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
